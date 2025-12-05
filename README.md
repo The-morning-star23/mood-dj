@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mood DJ 🎵
 
-## Getting Started
+A Full-Stack Next.js application that uses GenAI to curate music playlists based on your mood.
 
-First, run the development server:
+## Table of contents
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Quickstart](#quickstart)
+- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [Architecture & Notes](#architecture--notes)
+- [Development](#development)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
+## Overview
+Mood DJ generates mood-based playlists using Google Gemini and serves audio streams stored in MongoDB. It includes analytics for song popularity and caching for high-performance leaderboards.
+
+## Key Features
+- Smart Mixes: AI-curated playlists from your MP3 library.
+- Audio Streaming: Binary audio streamed from MongoDB to the browser.
+- Analytics: Song popularity tracked with MongoDB aggregation.
+- Caching: Leaderboard stats cached in Redis (Upstash) for performance.
+- Modern UI: Tailwind CSS with glassmorphism styling.
+
+## Tech Stack
+- Framework: Next.js 14 (App Router)
+- Database: MongoDB (metadata + audio buffers)
+- AI: Google Gemini 2.0 Flash
+- Cache: Redis (Upstash)
+- Styling: Tailwind CSS
+
+## Quickstart
+1. Clone the repository:
+   git clone <repo-url>
+2. Install dependencies:
+   npm install
+3. Start development server:
+   npm run dev
+4. Open: http://localhost:3000
+
+## Environment Variables
+Create a `.env.local` in the project root with the following keys:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+MONGODB_URI=your_mongodb_connection_string
+GEMINI_API_KEY=your_google_ai_key
+REDIS_URL=your_upstash_redis_url
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📸 Usage
+1. **Upload:** Drag & drop MP3 files (format: `Artist - Title.mp3`).
+2. **Prompt:** Enter a mood (e.g., "Late night coding").
+3. **Listen:** The AI selects and plays the tracks.
+4. **Stats:** Check the "Top Charts" for most played songs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Features
+- **Smart Mixes:** Upload your MP3 library and let Google Gemini AI create the perfect flow for your current vibe.
+- **Audio Streaming:** Binary audio data is streamed directly from MongoDB to the browser.
+- **Analytics:** Tracks song popularity using MongoDB Aggregation.
+- **High Performance:** Leaderboard stats are cached via Redis (Upstash) to reduce DB load.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
+- **Framework:** Next.js 14 (App Router)
+- **Database:** MongoDB (Metadata & Audio Buffers)
+- **AI Model:** Google Gemini 2.0 Flash
+- **Caching:** Redis (Upstash)
+- **Styling:** Tailwind CSS + Glassmorphism UI
 
-## Learn More
+## ⚙️ Environment Variables
+Create a `.env.local` file with the following keys:
+```bash
+MONGODB_URI=your_mongodb_connection_string
+GEMINI_API_KEY=your_google_ai_key
+REDIS_URL=your_upstash_redis_url
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🏃‍♂️ Getting Started
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run the development server: `npm run dev`
+4. Open [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📸 Usage
+1. **Upload:** Drag & drop MP3 files (format: `Artist - Title.mp3`).
+2. **Prompt:** Enter a mood (e.g., "Late night coding").
+3. **Listen:** The AI selects and plays the tracks.
+4. **Stats:** Check the "Top Charts" for most played songs.
