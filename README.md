@@ -9,11 +9,6 @@ A Full-Stack Next.js application that uses GenAI to curate music playlists based
 - [Quickstart](#quickstart)
 - [Environment Variables](#environment-variables)
 - [Usage](#usage)
-- [Architecture & Notes](#architecture--notes)
-- [Development](#development)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 Mood DJ generates mood-based playlists using Google Gemini and serves audio streams stored in MongoDB. It includes analytics for song popularity and caching for high-performance leaderboards.
